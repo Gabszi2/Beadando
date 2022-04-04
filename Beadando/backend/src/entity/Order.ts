@@ -15,5 +15,7 @@ deliveryTime:number;
 @ManyToMany(()=>Food)
 @JoinTable()
   orderedFoods:Food[];
+@Column()
+  deliverted:boolean;
 
 }
