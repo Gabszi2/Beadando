@@ -1,29 +1,33 @@
 import {Router} from "express";
+import {CustomerController} from "./src/controller/customer.controller";
+import {FoodController} from "./src/controller/food.controller";
+import {OrderController} from "./src/controller/order.controller";
 
 export function getRouter() {
   const router = Router();
 
- /* const userController = new UserController();
-  const productController = new ProductController();
-  const categoryController = new CategoryController();
+  const customerController = new CustomerController();
+  const foodController = new FoodController();
+  const orderController = new OrderController();
 
-  router.get('/users', userController.getAll);
-  router.get('/users/:id', userController.getOne);
-  router.post('/users', userController.create);
-  router.put('/users', userController.update);
-  router.delete('/users/:id', userController.delete);
+  router.get('/customers', customerController.getAll);
+  router.get('/customers/:id', customerController.getOne);
+  router.post('/customers', customerController.create);
+  router.put('/customers', customerController.update);
+  router.delete('/customers/:id', customerController.delete);
 
-  router.get('/products', productController.getAll);
-  router.get('/products/:id', productController.getOne);
-  router.post('/products', productController.create);
-  router.put('/products', productController.update);
-  router.delete('/products/:id', productController.delete);
+  router.get('/foods', foodController.getAll);
+  router.get('/foods/:id', foodController.getOne);
+  router.post('/foods', foodController.create);
+  router.put('/foods', foodController.update);
+  router.delete('/foods/:id', foodController.delete);
 
-  router.get('/categories', categoryController.getAll);
-  router.get('/categories/:id', categoryController.getOne);
-  router.post('/categories', categoryController.create);
-  router.put('/categories', categoryController.update);
-  router.delete('/categories/:id', categoryController.delete);*/
+  router.get('/orders', orderController.getAll);
+  router.get('/orders/:id', orderController.getOne);
+  router.post('/orders', orderController.create);
+  router.put('/orders', orderController.update);
+  router.delete('/orders/:id', orderController.delete);
+  router.delete('/orders/delivered', orderController.deleteDelivered);
 
   return router;
 }

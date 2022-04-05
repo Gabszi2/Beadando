@@ -16,6 +16,6 @@ deliveryTime:number;
 @JoinTable()
   orderedFoods:Food[];
 @Column()
-  deliverted:boolean;
+  delivered:boolean;
 
 }
