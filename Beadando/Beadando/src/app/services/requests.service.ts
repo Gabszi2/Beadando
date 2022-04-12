@@ -16,37 +16,41 @@ export class RequestsService {
   async getAllCustomer(){
     return lastValueFrom(this.http.get<Customer[]>(this.url+'/customers'));
   }
-  async addCustomer(customer:Customer):Promise<any>{
-    return this.http.post<Customer>(this.url+'/customers',customer)
+
+  async addCustomer(customer:Customer){
+    return lastValueFrom(this.http.post<Customer>(this.url+'/customers',customer))
   }
   async deleteCustomer(id:number){
-    return this.http.delete(this.url+'/customers/'+id)
+    return lastValueFrom(this.http.delete(this.url+'/customers/'+id))
   }
   //foods
-  async getAllFood():Promise<any>{
-    return this.http.get<Food[]>(this.url+'/foods');
+  async getAllFood(){
+    return lastValueFrom(this.http.get<Food[]>(this.url+'/foods'));
   }
-  async getFood(id:number):Promise<any>{
-    return this.http.get<Food>(this.url+'/foods/'+id);
+  async getFood(id:number){
+    return lastValueFrom(this.http.get<Food>(this.url+'/foods/'+id));
   }
-  async addFood(food:Food):Promise<any>{
-    return this.http.post<Food>(this.url+'/foods',food);
+  async addFood(food:Food){
+    return lastValueFrom(this.http.post<Food>(this.url+'/foods',food));
   }
   async deleteFood(id:number){
-    return this.http.delete(this.url+'/foods/'+id)
+    return lastValueFrom(this.http.delete(this.url+'/foods/'+id))
   }
   //orders
-  async getAllOrders():Promise<any>{
-    return this.http.get<Order[]>(this.url+'/orders');
+  async getAllOrders(){
+    return lastValueFrom(this.http.get<Order[]>(this.url+'/orders'));
   }
-  async updateOrder(order:Order):Promise<any>{
-    return this.http.put<Order>(this.url+'/orders/',order);
+  async updateOrder(order:Order){
+    return lastValueFrom(this.http.put<Order>(this.url+'/orders/',order));
   }
-  async addOrder(order:Order):Promise<any>{
-    return this.http.post<Order>(this.url+'/orders',order);
+  async addOrder(order:Order){
+    return lastValueFrom(this.http.post<Order>(this.url+'/orders',order));
   }
   async deleteOrder(id:number){
 
-    return this.http.delete(this.url+'/orders/'+id)
+    return lastValueFrom(this.http.delete(this.url+'/orders/'+id))
+  }
+  async deleteDelivered(){
+    return lastValueFrom(this.http.get(this.url+'/orders/delivered'))
   }
 }

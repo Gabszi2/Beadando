@@ -1,0 +1,24 @@
+<div class="btn btn-sm btn-warning" (click)="deleteDelivered()">Delete Delivered</div>
+<div class="row justify-content-center" *ngFor="let order of orders">
+  <div class="col-md-8">
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">{{order.customer.firstName}} {{order.customer.lastName}}</h5>
+        <div class="text-end">
+          <button class="btn btn-sm btn-danger" (click)="deleteOrder(order.id)">
+            Delete
+          </button>
+        </div>
+        <div class="text-end">
+        <button class="btn btn-sm btn-primary" (click)="delivered(order)"  >Delivered</button>
+        </div>
+<p class="card-text">
+Tel.: {{order.customer.tel}}
+
+</p>
+        <p class="card-text">Delivery time: {{order.deliveryTime}}</p>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import { Order } from "../entity/Order";
 
 export class OrderController extends Controller{
   repository=getRepository(Order);
-
+//TODO
   deleteDelivered= async (req,res)=>{
     try {
       const entities = await this.repository.find();
