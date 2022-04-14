@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Order} from "../modells/order";
 import {RequestsService} from "../services/requests.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -11,11 +12,11 @@ import {RequestsService} from "../services/requests.service";
 export class OrderListComponent implements OnInit {
   orders!: Order[];
 
-  constructor(private requestService: RequestsService) {
+  constructor(private requestService: RequestsService,private router:Router) {
   }
 
   async ngOnInit() {
-
+this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
     this.orders = await this.requestService.getAllOrders();
   }
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../modells/customer";
 import {RequestsService} from "../services/requests.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer-list',
@@ -10,10 +11,11 @@ import {RequestsService} from "../services/requests.service";
 export class CustomerListComponent implements OnInit {
   customers!: Customer[];
 
-  constructor(private requestService: RequestsService) {
+  constructor(private requestService: RequestsService,private router:Router) {
   }
 
   async ngOnInit() {
+this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
     this.customers = await this.requestService.getAllCustomer();
   }
 
