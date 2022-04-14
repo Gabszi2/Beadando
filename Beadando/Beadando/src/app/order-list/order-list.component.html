@@ -1,4 +1,4 @@
-<div (click)="deleteDelivered()" class="btn btn-sm btn-warning">Delete Delivered</div>
+
 <div *ngFor="let order of orders" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
@@ -17,6 +17,7 @@
 
         </p>
         <p class="card-text">Delivery time: {{order.deliveryTime}}</p>
+        <p class="card-text" *ngIf="order.delivered">Delivered!</p>
 
       </div>
     </div>

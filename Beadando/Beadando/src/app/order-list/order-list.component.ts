@@ -32,8 +32,5 @@ export class OrderListComponent implements OnInit {
     this.orders = await this.requestService.getAllOrders();
   }
 
-  async deleteDelivered() {
-    await this.requestService.deleteDelivered();
-  }
 
 }

@@ -63,7 +63,4 @@ export class RequestsService {
     return lastValueFrom(this.http.delete(this.url + '/orders/' + id))
   }
 
-  async deleteDelivered() {
-    return lastValueFrom(this.http.get(this.url + '/orders/delivered'))
-  }
 }

@@ -1,3 +1,4 @@
+<button class="btn btn-sm btn-warning" type="button" routerLink="/customer-add">Add Customer</button>
 <div *ngFor="let customer of customers" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
@@ -9,7 +10,7 @@
           </button>
         </div>
         <div class="text-end">
-          <button (click)="newOrder(customer.id)" class="btn btn-sm btn-danger">
+          <button (click)="newOrder(customer.id)" class="btn btn-sm btn-primary">
             New Order
           </button>
         </div>

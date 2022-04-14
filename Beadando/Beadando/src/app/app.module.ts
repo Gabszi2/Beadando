@@ -7,14 +7,16 @@ import {HttpClientModule} from "@angular/common/http";
 import {NavComponent} from './nav/nav.component';
 import {OrderListComponent} from './order-list/order-list.component';
 import {CustomerListComponent} from './customer-list/customer-list.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CustomerAddComponent } from './customer-add/customer-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     OrderListComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerAddComponent
   ],
   imports: [
     BrowserModule,

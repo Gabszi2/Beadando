@@ -27,7 +27,7 @@ export function getRouter() {
   router.post('/orders', orderController.create);
   router.put('/orders', orderController.update);
   router.delete('/orders/:id', orderController.delete);
-  router.delete('/orders/delivered', orderController.deleteDelivered);
+
 
   return router;
 }

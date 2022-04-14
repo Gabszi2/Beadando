@@ -16,6 +16,6 @@ export class Customer {
   address: string;
 
   @Column()
-  tel: number;
+  tel: string;
 
 }

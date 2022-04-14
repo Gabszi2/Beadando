@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="customerForm">
+      <label for="firstName">First name</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      <label for="lastName">Last name</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" formControlName="address">
+      <label for="tel">Tel.</label>
+      <input type="text" class="form-control" id="tel" formControlName="tel">
+
+      <button class="btn btn-primary mt-2" type="button" (click)="createCustomer()" [hidden]="customerForm.invalid"routerLink="/customers">
+        Save Customer
+      </button>
+    </form>
+  </div>
+</div>
