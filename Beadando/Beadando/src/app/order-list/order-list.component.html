@@ -1,21 +1,21 @@
-<div class="btn btn-sm btn-warning" (click)="deleteDelivered()">Delete Delivered</div>
-<div class="row justify-content-center" *ngFor="let order of orders">
+<div (click)="deleteDelivered()" class="btn btn-sm btn-warning">Delete Delivered</div>
+<div *ngFor="let order of orders" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
       <div class="card-body">
         <h5 class="card-title">{{order.customer.firstName}} {{order.customer.lastName}}</h5>
         <div class="text-end">
-          <button class="btn btn-sm btn-danger" (click)="deleteOrder(order.id)">
+          <button (click)="deleteOrder(order.id)" class="btn btn-sm btn-danger">
             Delete
           </button>
         </div>
         <div class="text-end">
-        <button class="btn btn-sm btn-primary" (click)="delivered(order)"  >Delivered</button>
+          <button (click)="delivered(order)" class="btn btn-sm btn-primary">Delivered</button>
         </div>
-<p class="card-text">
-Tel.: {{order.customer.tel}}
+        <p class="card-text">
+          Tel.: {{order.customer.tel}}
 
-</p>
+        </p>
         <p class="card-text">Delivery time: {{order.deliveryTime}}</p>
 
       </div>

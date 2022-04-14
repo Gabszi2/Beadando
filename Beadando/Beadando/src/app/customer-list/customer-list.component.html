@@ -1,15 +1,18 @@
-
-<div class="row justify-content-center" *ngFor="let customer of customers">
+<div *ngFor="let customer of customers" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
       <div class="card-body">
         <h5 class="card-title">{{customer.firstName}} {{customer.lastName}}</h5>
         <div class="text-end">
-          <button class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)">
+          <button (click)="deleteCustomer(customer.id)" class="btn btn-sm btn-danger">
             Delete
           </button>
         </div>
-
+        <div class="text-end">
+          <button (click)="newOrder(customer.id)" class="btn btn-sm btn-danger">
+            New Order
+          </button>
+        </div>
         <p class="card-text">
           Tel.: {{customer.tel}}
 

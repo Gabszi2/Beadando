@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../modells/customer";
 import {RequestsService} from "../services/requests.service";
 
@@ -8,15 +8,20 @@ import {RequestsService} from "../services/requests.service";
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-customers!:Customer[];
-  constructor(private requestService:RequestsService) { }
+  customers!: Customer[];
 
-  async ngOnInit(){
-    this.customers=await this.requestService.getAllCustomer();
+  constructor(private requestService: RequestsService) {
   }
 
-  async deleteCustomer(id:number) {
+  async ngOnInit() {
+    this.customers = await this.requestService.getAllCustomer();
+  }
+
+  async deleteCustomer(id: number) {
     await this.requestService.deleteCustomer(id)
-    this.customers=await this.requestService.getAllCustomer();
+    this.customers = await this.requestService.getAllCustomer();
+  }
+  async newOrder(id:number){
+
   }
 }

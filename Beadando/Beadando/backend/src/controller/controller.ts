@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import {Repository} from "typeorm";
 
 
 export abstract class Controller {
@@ -15,6 +15,8 @@ export abstract class Controller {
       this.handleError(res);
     }
   }
+
+  update = this.create;
 
   getAll = async (req, res) => {
     try {
@@ -43,8 +45,6 @@ export abstract class Controller {
     }
   }
 
-  update = this.create;
-
   delete = async (req, res) => {
     try {
       const id = req.params.id;
@@ -56,7 +56,7 @@ export abstract class Controller {
       }
 
       await this.repository.delete(entity);
-      res.json({ success: true });
+      res.status(200).json({success: true});
     } catch (err) {
       console.error(err);
       this.handleError(res);
@@ -64,6 +64,6 @@ export abstract class Controller {
   }
 
   handleError = (res, status = 500, message = 'Server error') => {
-    res.status(status).json({ message });
+    res.status(status).json({message});
   }
 }

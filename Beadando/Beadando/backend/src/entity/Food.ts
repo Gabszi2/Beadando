@@ -6,15 +6,15 @@ export class Food {
   id: number;
 
   @Column()
-  name:string;
+  name: string;
   @Column()
-  size:string;
+  size: string;
   @Column()
-  description:string;
+  description: string;
   @Column()
-  cookTime:number;
+  cookTime: number;
   @Column()
-  price:number;
+  price: number;
 
 
 }

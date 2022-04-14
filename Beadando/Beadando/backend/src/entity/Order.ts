@@ -7,15 +7,13 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-@Column()
-deliveryTime:number;
-@OneToOne(()=>Customer)
-@JoinColumn()
-  customer:Customer;
-@ManyToMany(()=>Food)
-@JoinTable()
-  orderedFoods:Food[];
-@Column()
-  delivered:boolean;
+  @Column()
+  deliveryTime: number;
+  @OneToOne(() => Customer,{eager:true})
+  customer: Customer;
+  @ManyToMany(() => Food,{eager:true,cascade:true})
+  orderedFoods: Food[];
+  @Column()
+  delivered: boolean;
 
 }

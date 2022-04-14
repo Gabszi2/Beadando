@@ -2,17 +2,17 @@ import {Customer} from "./customer";
 import {Food} from "./food";
 
 
-export interface Order{
+export interface Order {
 
   id: number;
 
 
-  deliveryTime:number;
+  deliveryTime: number;
 
-  customer:Customer;
+  customer: Customer;
 
-  orderedFoods:Food[];
+  orderedFoods: Food[];
 
-  delivered:boolean;
+  delivered: boolean;
 
 }

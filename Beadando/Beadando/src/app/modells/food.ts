@@ -1,15 +1,13 @@
-import {Column, PrimaryGeneratedColumn} from "typeorm";
-
-export interface Food{
+export interface Food {
 
   id: number;
 
-  name:string;
+  name: string;
 
-  size:string;
-  description:string;
+  size: string;
+  description: string;
 
-  cookTime:number;
+  cookTime: number;
 
-  price:number;
+  price: number;
 }

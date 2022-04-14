@@ -1,6 +1,4 @@
-import {Column, PrimaryGeneratedColumn} from "typeorm";
-
-export interface Customer{
+export interface Customer {
 
   id: number;
 
