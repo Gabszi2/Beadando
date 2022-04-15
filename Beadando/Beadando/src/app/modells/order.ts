@@ -1,5 +1,5 @@
 import {Customer} from "./customer";
-import {Food} from "./food";
+import {OrderedFoods} from "./orderedFoods";
 
 
 export interface Order {
@@ -11,7 +11,7 @@ export interface Order {
 
   customer: Customer;
 
-  orderedFoods: Food[];
+  orderedFoods: OrderedFoods[];
 
   delivered: boolean;
 

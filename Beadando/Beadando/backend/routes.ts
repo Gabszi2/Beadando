@@ -2,6 +2,7 @@ import {Router} from "express";
 import {CustomerController} from "./src/controller/customer.controller";
 import {FoodController} from "./src/controller/food.controller";
 import {OrderController} from "./src/controller/order.controller";
+import {OrderedFoodsController} from "./src/controller/orderedFoods.controller";
 
 export function getRouter() {
   const router = Router();
@@ -9,6 +10,7 @@ export function getRouter() {
   const customerController = new CustomerController();
   const foodController = new FoodController();
   const orderController = new OrderController();
+  const orderedFoodsController=new OrderedFoodsController();
 
   router.get('/customers', customerController.getAll);
   router.get('/customers/:id', customerController.getOne);
@@ -28,6 +30,9 @@ export function getRouter() {
   router.put('/orders', orderController.update);
   router.delete('/orders/:id', orderController.delete);
 
+  router.get('/orderedFoods',orderedFoodsController.getAll);
+  router.put('/orderedFoods',orderedFoodsController.create);
+  router.delete('/orderedFoods/:id',orderedFoodsController.delete);
 
   return router;
 }

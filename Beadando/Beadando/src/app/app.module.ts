@@ -10,6 +10,9 @@ import {CustomerListComponent} from './customer-list/customer-list.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { OrderAddComponent } from './order-add/order-add.component';
+import { OrderedFoodsListComponent } from './ordered-foods-list/ordered-foods-list.component';
+import { FoodListComponent } from './food-list/food-list.component';
+import { FoodAddComponent } from './food-add/food-add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { OrderAddComponent } from './order-add/order-add.component';
     OrderListComponent,
     CustomerListComponent,
     CustomerAddComponent,
-    OrderAddComponent
+    OrderAddComponent,
+    OrderedFoodsListComponent,
+    FoodListComponent,
+    FoodAddComponent
   ],
   imports: [
     BrowserModule,

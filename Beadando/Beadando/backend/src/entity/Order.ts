@@ -13,7 +13,7 @@ export class Order {
   @OneToOne(() => Customer,{eager:true})
   @JoinColumn()
   customer: Customer;
-  @OneToMany(()=>OrderedFoods,(orderedFood)=>orderedFood.order,{eager:true,cascade:true})
+  @OneToMany(()=>OrderedFoods,(orderedFood)=>orderedFood.order,{cascade:true})
   orderedFoods: OrderedFoods[];
   @Column()
   delivered: boolean;

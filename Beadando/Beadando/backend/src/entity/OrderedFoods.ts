@@ -6,7 +6,7 @@ import {Food} from "./Food";
 export class OrderedFoods {
 @PrimaryGeneratedColumn()
   id:number
-  @ManyToOne(()=>Order,(order)=>order.orderedFoods,{onDelete:'CASCADE'})
+  @ManyToOne(()=>Order,(order)=>order.orderedFoods,{onDelete:'CASCADE',eager:true})
   order:Order;
   @ManyToOne(()=>Food,{eager:true})
   food:Food;

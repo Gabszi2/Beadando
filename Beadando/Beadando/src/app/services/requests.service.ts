@@ -4,6 +4,7 @@ import {Customer} from "../modells/customer";
 import {Food} from "../modells/food";
 import {Order} from "../modells/order";
 import {lastValueFrom} from "rxjs";
+import {OrderedFoods} from "../modells/orderedFoods";
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,7 @@ export class RequestsService {
 
     return lastValueFrom(this.http.delete(this.url + '/orders/' + id))
   }
-
+async getAllOrderedFoods(){
+    return lastValueFrom(this.http.get<OrderedFoods[]>(this.url+'/orderedFoods'))
+}
 }

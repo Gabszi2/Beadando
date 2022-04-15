@@ -1,0 +1,11 @@
+<button routerLink="/orders" class="btn btn-sm btn-danger">Back</button>
+<div *ngFor="let food of orderedFoods" class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-2">
+      <div class="card-body">
+        <p class="card-text">{{food.food.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+

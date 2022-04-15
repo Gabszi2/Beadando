@@ -18,8 +18,11 @@
         </p>
         <p class="card-text">Delivery time: {{order.deliveryTime}}</p>
         <p class="card-text" *ngIf="order.delivered">Delivered!</p>
-
+        <div class="text-start">
+          <button routerLink="/ordered-foods/{{order.id}}" class="btn btn-sm btn-warning">Ordered foods</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Order} from "../modells/order";
 import {RequestsService} from "../services/requests.service";
 import {Router} from "@angular/router";
+import {OrderedFoods} from "../modells/orderedFoods";
 
 
 @Component({
