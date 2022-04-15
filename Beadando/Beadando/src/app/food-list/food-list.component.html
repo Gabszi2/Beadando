@@ -1,1 +1,22 @@
-<p>food-list works!</p>
+<button class="btn btn-sm btn-warning" type="button" routerLink="/food-add">Add food</button>
+<div *ngFor="let food of foods" class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">{{food.name}}</h5>
+        <div class="text-end">
+          <button (click)="deleteFood(food.id)" class="btn btn-sm btn-danger">
+            Delete
+          </button>
+        </div>
+
+        <p class="card-text">
+          Size: {{food.size}}
+
+        </p>
+        <p class="card-text">Description: {{food.description}}</p>
+        <p class="card-text"> Price: {{food.price}}</p>
+      </div>
+    </div>
+  </div>
+</div>

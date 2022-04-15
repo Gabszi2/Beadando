@@ -1,1 +1,21 @@
-<p>food-add works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="foodForm">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <label for="size">Size</label>
+      <input type="text" class="form-control" id="size" formControlName="size">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <label for="cookTime">Cook time.</label>
+      <input type="number" class="form-control" id="cookTime" formControlName="cookTime">
+      <label for="price">Price.</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+
+      <button class="btn btn-primary mt-2" type="button" (click)="createFood()" [hidden]="foodForm.invalid"routerLink="/foods">
+        Save Food
+      </button>
+    </form>
+  </div>
+</div>
+

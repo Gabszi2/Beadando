@@ -23,7 +23,5 @@ this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
     await this.requestService.deleteCustomer(id)
     this.customers = await this.requestService.getAllCustomer();
   }
-  async newOrder(id:number){
 
-  }
 }
