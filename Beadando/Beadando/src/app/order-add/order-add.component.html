@@ -1,1 +1,22 @@
-<p>order-add works!</p>
+<button (click)="orderDone()" class="btn btn-sm btn-primary">
+  Done
+</button>
+<div *ngFor="let food of foodAll" class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">{{food.name}}</h5>
+        <div class="text-end">
+          <button (click)="addFoodToOrder(food)" class="btn btn-sm btn-success">
+            Add
+          </button>
+        </div>
+        <p class="card-text">
+          Size: {{food.size}}
+        </p>
+        <p class="card-text"> Price: {{food.price}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let food of foodsAdded">{{food.name}}</div>

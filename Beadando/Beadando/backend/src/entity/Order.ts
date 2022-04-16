@@ -2,6 +2,7 @@ import {Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToMany, OneToOne, 
 import {Customer} from "./Customer";
 import {Food} from "./Food";
 import {OrderedFoods} from "./OrderedFoods";
+import {KitchenQueue} from "./KitchenQueue";
 
 @Entity()
 export class Order {
@@ -15,6 +16,8 @@ export class Order {
   customer: Customer;
   @OneToMany(()=>OrderedFoods,(orderedFood)=>orderedFood.order,{cascade:true})
   orderedFoods: OrderedFoods[];
+  @OneToMany(()=>KitchenQueue,(kitchenQueue)=>kitchenQueue.order,{cascade:true})
+  kitchenQueue:KitchenQueue[];
   @Column()
   delivered: boolean;
 

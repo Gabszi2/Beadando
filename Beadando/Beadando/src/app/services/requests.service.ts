@@ -6,6 +6,7 @@ import {Order} from "../modells/order";
 import {lastValueFrom} from "rxjs";
 import {OrderedFoods} from "../modells/orderedFoods";
 import {Config} from "../modells/config";
+import {KitchenQueue} from "../modells/kitchenQueue";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,9 @@ export class RequestsService {
 
   async deleteCustomer(id: number) {
     return lastValueFrom(this.http.delete(this.url + '/customers/' + id))
+  }
+  async getCustomer(id:number){
+    return lastValueFrom(this.http.get<Customer>(this.url+'/customers/'+id))
   }
 
   //foods
@@ -60,8 +64,12 @@ export class RequestsService {
 
     return lastValueFrom(this.http.delete(this.url + '/orders/' + id))
   }
+  //Ordered foods
 async getAllOrderedFoods(){
     return lastValueFrom(this.http.get<OrderedFoods[]>(this.url+'/orderedFoods'))
+}
+async addOrderedFoods(orderedFoods:OrderedFoods){
+    return lastValueFrom(this.http.post<OrderedFoods>(this.url+'/orderedFoods',orderedFoods))
 }
 //Config
   async getConfig(){
@@ -69,5 +77,12 @@ async getAllOrderedFoods(){
   }
   async updateConfig(config:Config){
     return lastValueFrom(this.http.put(this.url+'/config',config))
+  }
+  //queue
+  async getQueue(){
+    return lastValueFrom(this.http.get<KitchenQueue[]>(this.url+'/queue'))
+  }
+  async addToQueue(add:KitchenQueue){
+    return lastValueFrom(this.http.post<KitchenQueue>(this.url+'/queue',add))
   }
 }

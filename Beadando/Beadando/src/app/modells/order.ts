@@ -1,5 +1,6 @@
 import {Customer} from "./customer";
 import {OrderedFoods} from "./orderedFoods";
+import {KitchenQueue} from "./kitchenQueue";
 
 
 export interface Order {
@@ -12,7 +13,7 @@ export interface Order {
   customer: Customer;
 
   orderedFoods: OrderedFoods[];
-
+  kitchenQueue:KitchenQueue[];
   delivered: boolean;
 
 }
