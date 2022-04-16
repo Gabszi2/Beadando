@@ -7,9 +7,11 @@ import {OrderAddComponent} from "./order-add/order-add.component";
 import {OrderedFoodsListComponent} from "./ordered-foods-list/ordered-foods-list.component";
 import {FoodListComponent} from "./food-list/food-list.component";
 import {FoodAddComponent} from "./food-add/food-add.component";
+import {ConfigComponent} from "./config/config.component";
 
 
 const routes: Routes = [
+  {path:'',component:ConfigComponent},
   {path: 'orders', component: OrderListComponent},
   {path: 'customers', component: CustomerListComponent},
   {path:'customer-add',component:CustomerAddComponent},

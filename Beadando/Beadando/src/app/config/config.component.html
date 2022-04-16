@@ -1,0 +1,17 @@
+
+<div class="row">
+  <div class="col-md-6">
+    <form [formGroup]="configForm">
+      <label for="discountFrom">discountFrom</label>
+      <input type="number" class="form-control" id="discountFrom" formControlName="discountFrom">
+      <label for="cookingStations">cookingStations</label>
+      <input type="number" class="form-control" id="cookingStations" formControlName="cookingStations">
+
+
+      <button class="btn btn-primary mt-2" type="button" (click)="setConfig()" [hidden]="configForm.invalid"routerLink="/customers">
+        Save Config
+      </button>
+    </form>
+  </div>
+</div>
+

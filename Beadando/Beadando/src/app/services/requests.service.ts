@@ -5,6 +5,7 @@ import {Food} from "../modells/food";
 import {Order} from "../modells/order";
 import {lastValueFrom} from "rxjs";
 import {OrderedFoods} from "../modells/orderedFoods";
+import {Config} from "../modells/config";
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +33,6 @@ export class RequestsService {
   //foods
   async getAllFood() {
     return lastValueFrom(this.http.get<Food[]>(this.url + '/foods'));
-  }
-
-  async getFood(id: number) {
-    return lastValueFrom(this.http.get<Food>(this.url + '/foods/' + id));
   }
 
   async addFood(food: Food) {
@@ -66,4 +63,11 @@ export class RequestsService {
 async getAllOrderedFoods(){
     return lastValueFrom(this.http.get<OrderedFoods[]>(this.url+'/orderedFoods'))
 }
+//Config
+  async getConfig(){
+    return lastValueFrom(this.http.get<Config[]>(this.url+'/config'))
+  }
+  async updateConfig(config:Config){
+    return lastValueFrom(this.http.put(this.url+'/config',config))
+  }
 }
