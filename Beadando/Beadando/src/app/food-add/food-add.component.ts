@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {RequestsService} from "../services/requests.service";
 import {Food} from "../modells/food";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-food-add',
@@ -10,7 +11,7 @@ import {Food} from "../modells/food";
 })
 export class FoodAddComponent implements OnInit {
 foodForm!:FormGroup;
-  constructor(private service:RequestsService,private formBuilder:FormBuilder) { }
+  constructor(private service:RequestsService,private formBuilder:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
     this.foodForm=this.formBuilder.group({
@@ -25,6 +26,7 @@ foodForm!:FormGroup;
   async createFood(){
     const food=this.foodForm.value;
     const addedFood=await this.service.addFood(food);
+    this.router.navigate(['/foods']).then(()=>{window.location.reload()})
 
   }
 

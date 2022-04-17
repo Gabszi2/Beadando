@@ -13,14 +13,16 @@ import {OrderedFoods} from "../modells/orderedFoods";
 export class OrderListComponent implements OnInit {
   orders!: Order[];
 
-  constructor(private requestService: RequestsService,private router:Router) {
+  constructor(private requestService: RequestsService) {
   }
 
-  async ngOnInit() {
-this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
-    this.orders = await this.requestService.getAllOrders();
-  }
+ ngOnInit() {
 
+this.setup();
+  }
+async setup(){
+  this.orders = await this.requestService.getAllOrders();
+}
   async deleteOrder(id: number) {
 
     await this.requestService.deleteOrder(id);

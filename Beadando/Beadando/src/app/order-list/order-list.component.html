@@ -1,4 +1,4 @@
-
+<h3 class="row justify-content-center">Orders</h3>
 <div *ngFor="let order of orders" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
@@ -16,6 +16,7 @@
           Tel.: {{order.customer.tel}}
 
         </p>
+        <p class="card-text">Price: {{order.endPrice}}</p>
         <p class="card-text">Delivery time: {{order.deliveryTime}}</p>
         <p class="card-text" *ngIf="order.delivered">Delivered!</p>
         <div class="text-start">

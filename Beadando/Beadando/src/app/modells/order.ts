@@ -14,6 +14,7 @@ export interface Order {
 
   orderedFoods: OrderedFoods[];
   kitchenQueue:KitchenQueue[];
+  endPrice:number;
   delivered: boolean;
 
 }

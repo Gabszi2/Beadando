@@ -10,10 +10,14 @@ import {Router} from "@angular/router";
 })
 export class FoodListComponent implements OnInit {
 foods!:Food[];
-  constructor(private requestService: RequestsService,private router:Router) { }
+  constructor(private requestService: RequestsService) { }
 
-  async ngOnInit() {
-    this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
+   ngOnInit() {
+
+this.setup();
+  }
+  async setup(){
+
     this.foods=await this.requestService.getAllFood();
   }
   async deleteFood(id:number){

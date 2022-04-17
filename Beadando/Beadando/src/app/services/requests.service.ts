@@ -64,6 +64,7 @@ export class RequestsService {
 
     return lastValueFrom(this.http.delete(this.url + '/orders/' + id))
   }
+
   //Ordered foods
 async getAllOrderedFoods(){
     return lastValueFrom(this.http.get<OrderedFoods[]>(this.url+'/orderedFoods'))

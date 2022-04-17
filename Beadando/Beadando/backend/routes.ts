@@ -32,9 +32,11 @@ export function getRouter() {
   router.delete('/orders/:id', orderController.delete);
   router.put('/orders',orderController.update);
 
+
   router.get('/orderedFoods',orderedFoodsController.getAll);
   router.post('/orderedFoods',orderedFoodsController.create);
   router.delete('/orderedFoods/:id',orderedFoodsController.delete);
+
 
   router.get('/config',configController.getAll);
   router.put('/config',configController.update);

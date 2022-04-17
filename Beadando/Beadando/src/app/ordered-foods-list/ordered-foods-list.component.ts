@@ -13,11 +13,13 @@ export class OrderedFoodsListComponent implements OnInit {
   allOrderedFoods!:OrderedFoods[];
   orderedFoods:OrderedFoods[]=[];
   id!:number;
-  constructor(private route:ActivatedRoute,private service:RequestsService,private router:Router) { }
+  constructor(private route:ActivatedRoute,private service:RequestsService) { }
 
-  async ngOnInit(){
-    this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
-  this.id =parseInt(<string>this.route.snapshot.paramMap.get('id'));
+  ngOnInit(){
+  this.setup();
+  }
+  async setup(){
+    this.id =parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.allOrderedFoods=await this.service.getAllOrderedFoods();
     this.ordersFoods();
   }

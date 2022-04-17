@@ -11,14 +11,15 @@ import {Router} from "@angular/router";
 export class CustomerListComponent implements OnInit {
   customers!: Customer[];
 
-  constructor(private requestService: RequestsService,private router:Router) {
+  constructor(private requestService: RequestsService) {
   }
 
-  async ngOnInit() {
-this.router.routeReuseStrategy.shouldReuseRoute=()=>false;
-    this.customers = await this.requestService.getAllCustomer();
+  ngOnInit() {
+  this.setup();
   }
-
+async setup(){
+  this.customers = await this.requestService.getAllCustomer();
+}
   async deleteCustomer(id: number) {
     await this.requestService.deleteCustomer(id)
     this.customers = await this.requestService.getAllCustomer();

@@ -1,5 +1,6 @@
 <button routerLink="/foods" class="btn btn-sm btn-danger">Back</button>
-<div class="row">
+<h3 class="row justify-content-center">Add food</h3>
+<div class="row justify-content-center">
   <div class="col-md-6">
     <form [formGroup]="foodForm">
       <label for="name">Name</label>
@@ -13,7 +14,7 @@
       <label for="price">Price.</label>
       <input type="number" class="form-control" id="price" formControlName="price">
 
-      <button class="btn btn-primary mt-2" type="button" (click)="createFood()" [hidden]="foodForm.invalid"routerLink="/foods">
+      <button class="btn btn-primary mt-2" type="button" (click)="createFood()" [hidden]="foodForm.invalid">
         Save Food
       </button>
     </form>

@@ -1,5 +1,6 @@
 <button routerLink="/customers" class="btn btn-sm btn-danger">Back</button>
-<div class="row">
+<h3 class="row justify-content-center">Add customer</h3>
+<div class="row justify-content-center">
   <div class="col-md-6">
     <form [formGroup]="customerForm">
       <label for="firstName">First name</label>
@@ -11,7 +12,7 @@
       <label for="tel">Tel.</label>
       <input type="text" class="form-control" id="tel" formControlName="tel">
 
-      <button class="btn btn-primary mt-2" type="button" (click)="createCustomer()" [hidden]="customerForm.invalid"routerLink="/customers">
+      <button class="btn btn-primary mt-2 " type="button" (click)="createCustomer()" [hidden]="customerForm.invalid">
         Save Customer
       </button>
     </form>

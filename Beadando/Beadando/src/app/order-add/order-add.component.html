@@ -1,6 +1,7 @@
-<button (click)="orderDone()" class="btn btn-sm btn-primary">
+<button (click)="orderDone()" class="btn btn-sm btn-primary" >
   Done
 </button>
+<h3 class="row justify-content-center">Add order</h3>
 <div *ngFor="let food of foodAll" class="row justify-content-center">
   <div class="col-md-8">
     <div class="card mt-2">
@@ -19,4 +20,4 @@
     </div>
   </div>
 </div>
-<div *ngFor="let food of foodsAdded">{{food.name}}</div>
+

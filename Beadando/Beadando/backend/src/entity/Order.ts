@@ -11,13 +11,15 @@ export class Order {
 
   @Column()
   deliveryTime: number;
-  @OneToOne(() => Customer,{eager:true})
+  @OneToOne(() => Customer,{eager:true,onDelete:'CASCADE'})
   @JoinColumn()
   customer: Customer;
   @OneToMany(()=>OrderedFoods,(orderedFood)=>orderedFood.order,{cascade:true})
   orderedFoods: OrderedFoods[];
   @OneToMany(()=>KitchenQueue,(kitchenQueue)=>kitchenQueue.order,{cascade:true})
   kitchenQueue:KitchenQueue[];
+  @Column()
+  endPrice:number;
   @Column()
   delivered: boolean;
 

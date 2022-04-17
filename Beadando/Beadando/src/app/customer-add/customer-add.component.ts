@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RequestsService} from "../services/requests.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer-add',
@@ -9,7 +10,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class CustomerAddComponent implements OnInit {
 customerForm!:FormGroup;
-  constructor(private service:RequestsService,private formBuilder:FormBuilder) { }
+  constructor(private service:RequestsService,private formBuilder:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
     this.customerForm=this.formBuilder.group({
@@ -23,5 +24,7 @@ customerForm!:FormGroup;
   async createCustomer(){
     const customer=this.customerForm.value;
       const addedCustomer=await this.service.addCustomer(customer);
+    this.router.navigate(['/customers']).then(()=>{window.location.reload()})
+
 }
 }
