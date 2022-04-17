@@ -70,7 +70,7 @@ export class OrderAddComponent implements OnInit {
       for (let i = 0; i < this.queue.length; i++) {
         queueAvg = queueAvg + this.queue[i].food.cookTime;
       }
-      queueAvg = (queueAvg / this.queue.length) * queueBuildup;
+      queueAvg = ((queueAvg / this.queue.length) * queueBuildup) + (queueAvg * Math.floor(kitchenSize/2));
       this.order.deliveryTime = this.order.deliveryTime + queueAvg;
     }
 
@@ -82,7 +82,7 @@ export class OrderAddComponent implements OnInit {
       for (let i=0;i<this.foodsAdded.length;i++){
         addedAvg=addedAvg+this.foodsAdded[i].cookTime;
       }
-      addedAvg=(addedAvg/this.foodsAdded.length)*addedBuildup+1;
+      addedAvg=((addedAvg/this.foodsAdded.length))*(addedBuildup+addedAvg*Math.floor(kitchenSize/2));
       this.order.deliveryTime=this.order.deliveryTime+addedAvg;
     }
     else {
