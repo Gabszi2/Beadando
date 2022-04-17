@@ -20,8 +20,10 @@ export class OrderAddComponent implements OnInit {
   id!: number;
   foodsAdded: Food[] = [];
   queue!: KitchenQueue[];
+  config!:Config[];
 
   order=<Order>{};
+  asd!:number;
   constructor(private service: RequestsService, private route: ActivatedRoute,private router:Router) {
   }
 
@@ -29,7 +31,8 @@ export class OrderAddComponent implements OnInit {
     this.id = parseInt(<string>this.route.snapshot.paramMap.get('id'));
     this.foodAll = await this.service.getAllFood();
     this.customer = await this.service.getCustomer(this.id);
-   this.queue = await this.service.getQueue();
+    this.queue = await this.service.getQueue();
+    this.config=await this.service.getConfig();
   }
 
   addFoodToOrder(food: Food) {
@@ -44,7 +47,7 @@ export class OrderAddComponent implements OnInit {
     this.order.orderedFoods=[];
     this.order.kitchenQueue=[];
 
-   for (let i =0;i<this.foodsAdded.length;i++){
+    for (let i =0;i<this.foodsAdded.length;i++){
       let orderedFoods=<OrderedFoods>{};
       orderedFoods.food=this.foodsAdded[i];
       let queueAdd=<KitchenQueue>{};
@@ -53,10 +56,50 @@ export class OrderAddComponent implements OnInit {
       this.order.kitchenQueue.push(queueAdd);
       this.order.endPrice=this.order.endPrice+this.foodsAdded[i].price;
     }
+    if (this.order.endPrice>=this.config[0].discountFrom){
+      this.order.endPrice=this.order.endPrice*0.9;
+    }
+
+
+    let kitchenSize=this.config[0].cookingStations;
+    let queueBuildup=Math.floor(this.queue.length/kitchenSize);
+
+
+    if (queueBuildup>0) {
+      let queueAvg: number = 0;
+      for (let i = 0; i < this.queue.length; i++) {
+        queueAvg = queueAvg + this.queue[i].food.cookTime;
+      }
+      queueAvg = (queueAvg / this.queue.length) * queueBuildup;
+      this.order.deliveryTime = this.order.deliveryTime + queueAvg;
+    }
+
+
+    if (this.foodsAdded.length>kitchenSize){
+      let addedBuildup:number=Math.floor(this.foodsAdded.length/kitchenSize);
+      let addedAvg:number=0;
+
+      for (let i=0;i<this.foodsAdded.length;i++){
+        addedAvg=addedAvg+this.foodsAdded[i].cookTime;
+      }
+      addedAvg=(addedAvg/this.foodsAdded.length)*addedBuildup+1;
+      this.order.deliveryTime=this.order.deliveryTime+addedAvg;
+    }
+    else {
+      let addedAvg:number=0;
+      for (let i=0;i<this.foodsAdded.length;i++){
+        addedAvg=addedAvg+this.foodsAdded[i].cookTime;
+      }
+      addedAvg=addedAvg/this.foodsAdded.length;
+      this.order.deliveryTime=this.order.deliveryTime+addedAvg;
+    }
+
     await this.service.addOrder(this.order);
- this.router.navigate(['/orders']).then(()=>{window.location.reload()})
+
+   this.router.navigate(['/orders']).then(()=>{window.location.reload()})
   }
 
 
 }
+
 
