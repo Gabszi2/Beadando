@@ -14,6 +14,7 @@ import { OrderedFoodsListComponent } from './ordered-foods-list/ordered-foods-li
 import { FoodListComponent } from './food-list/food-list.component';
 import { FoodAddComponent } from './food-add/food-add.component';
 import { ConfigComponent } from './config/config.component';
+import { KitchenListComponent } from './kitchen-list/kitchen-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ConfigComponent } from './config/config.component';
     OrderedFoodsListComponent,
     FoodListComponent,
     FoodAddComponent,
-    ConfigComponent
+    ConfigComponent,
+    KitchenListComponent
   ],
   imports: [
     BrowserModule,

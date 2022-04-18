@@ -43,6 +43,7 @@ export function getRouter() {
 
   router.get('/queue',queueController.getAll);
   router.post('/queue',queueController.create);
+  router.delete('/queue/:id',queueController.delete)
 
   return router;
 }

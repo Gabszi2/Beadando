@@ -93,7 +93,7 @@ export class OrderAddComponent implements OnInit {
       addedAvg=addedAvg/this.foodsAdded.length;
       this.order.deliveryTime=this.order.deliveryTime+addedAvg;
     }
-
+this.order.deliveryTime=Math.floor(this.order.deliveryTime);
     await this.service.addOrder(this.order);
 
    this.router.navigate(['/orders']).then(()=>{window.location.reload()})

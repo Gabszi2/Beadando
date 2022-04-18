@@ -86,4 +86,7 @@ async addOrderedFoods(orderedFoods:OrderedFoods){
   async addToQueue(add:KitchenQueue){
     return lastValueFrom(this.http.post<KitchenQueue>(this.url+'/queue',add))
   }
+  async deleteFromQueue(id:number){
+  return lastValueFrom(this.http.delete(this.url+'/queue/'+id))
+  }
 }

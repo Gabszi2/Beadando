@@ -9,6 +9,7 @@ import {FoodListComponent} from "./food-list/food-list.component";
 import {FoodAddComponent} from "./food-add/food-add.component";
 import {ConfigComponent} from "./config/config.component";
 import {Customer} from "../../backend/src/entity/Customer";
+import {KitchenListComponent} from "./kitchen-list/kitchen-list.component";
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'order-add/:id',component:OrderAddComponent},
   {path:'ordered-foods/:id',component:OrderedFoodsListComponent},
   {path:'foods',component:FoodListComponent},
-  {path:'food-add',component:FoodAddComponent}
+  {path:'food-add',component:FoodAddComponent},
+  {path:'kitchen-list',component:KitchenListComponent}
 ];
 
 @NgModule({
