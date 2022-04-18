@@ -1,0 +1,19 @@
+<h3 class="row justify-content-center">Kitchen</h3>
+<div *ngFor="let food of queue;let i=index" [hidden]="i>=kitchenSize" class="row justify-content-center">
+  <div class="col-md-8" >
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">{{food.food.name}}</h5>
+        <div class="text-end">
+          <button (click)="deleteFromQueue(food.id)" class="btn btn-sm btn-danger">
+            Delete
+          </button>
+        </div>
+        <p class="card-text">Size:{{food.food.size}} </p>
+        <p class="card-text">Order:{{food.order.id}} </p>
+        <p class="card-text">Description:{{food.food.description}} </p>
+      </div>
+    </div>
+  </div>
+</div>
+
