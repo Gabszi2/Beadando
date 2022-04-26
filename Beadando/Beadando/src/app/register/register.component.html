@@ -1,0 +1,20 @@
+<h3 class="row justify-content-center">Register</h3>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <form [formGroup]="registerForm">
+      <label for="userName">User name</label>
+      <input type="text" class="form-control" id="userName" formControlName="userName">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" formControlName="password">
+      <label for="isAdmin">Admin</label>
+      <select id="isAdmin" class="form-control" formControlName="isAdmin">
+        <option [ngValue]="true">True</option>
+        <option [ngValue]="false" >False</option>
+      </select>
+
+      <button class="btn btn-primary mt-2 " type="button" (click)="register()" [hidden]="registerForm.invalid">
+       Register
+      </button>
+    </form>
+  </div>
+</div>

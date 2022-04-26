@@ -5,6 +5,7 @@ import {OrderController} from "./src/controller/order.controller";
 import {OrderedFoodsController} from "./src/controller/orderedFoods.controller";
 import {ConfigController} from "./src/controller/config.controller";
 import {KitchenQueueController} from "./src/controller/kitchen-queue.controller";
+import {UserController} from "./src/controller/user.controller";
 
 export function getRouter() {
   const router = Router();
@@ -15,8 +16,13 @@ export function getRouter() {
   const orderedFoodsController=new OrderedFoodsController();
   const configController=new ConfigController();
   const queueController=new KitchenQueueController();
+  const userController=new UserController();
 
-
+router.get('/user/:userName/:password',userController.login);
+router.post('/user',userController.register);
+router.delete('/user/:userName',userController.remove);
+router.put('/user',userController.update);
+router.get('/user',userController.getAll);
 
   router.get('/customers', customerController.getAll);
   router.post('/customers', customerController.create);

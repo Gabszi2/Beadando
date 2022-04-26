@@ -8,20 +8,28 @@ import {OrderedFoodsListComponent} from "./ordered-foods-list/ordered-foods-list
 import {FoodListComponent} from "./food-list/food-list.component";
 import {FoodAddComponent} from "./food-add/food-add.component";
 import {ConfigComponent} from "./config/config.component";
-import {Customer} from "../../backend/src/entity/Customer";
 import {KitchenListComponent} from "./kitchen-list/kitchen-list.component";
+import {LogInComponent} from "./log-in/log-in.component";
+import {RegisterComponent} from "./register/register.component";
+import {AdminGuard} from "./admin.guard";
+import {UserGuard} from "./user.guard";
+import {UsersComponent} from "./users/users.component";
 
 
 const routes: Routes = [
-  {path:'',component:ConfigComponent},
-  {path: 'orders', component: OrderListComponent},
-  {path: 'customers', component: CustomerListComponent},
-  {path:'customer-add',component:CustomerAddComponent},
-  {path:'order-add/:id',component:OrderAddComponent},
-  {path:'ordered-foods/:id',component:OrderedFoodsListComponent},
-  {path:'foods',component:FoodListComponent},
-  {path:'food-add',component:FoodAddComponent},
-  {path:'kitchen-list',component:KitchenListComponent}
+  {path:'',redirectTo:'/login',pathMatch:'full'},
+  {path:'login',component:LogInComponent},
+  {path:'register',component:RegisterComponent,canActivate:[AdminGuard]},
+  {path:'config',component:ConfigComponent,canActivate:[AdminGuard]},
+  {path:'users',component:UsersComponent,canActivate:[AdminGuard]},
+  {path: 'orders', component: OrderListComponent,canActivate:[UserGuard]},
+  {path: 'customers', component: CustomerListComponent,canActivate:[UserGuard]},
+  {path:'customer-add',component:CustomerAddComponent,canActivate:[UserGuard]},
+  {path:'order-add/:id',component:OrderAddComponent,canActivate:[UserGuard]},
+  {path:'ordered-foods/:id',component:OrderedFoodsListComponent,canActivate:[UserGuard]},
+  {path:'foods',component:FoodListComponent,canActivate:[UserGuard]},
+  {path:'food-add',component:FoodAddComponent,canActivate:[UserGuard]},
+  {path:'kitchen-list',component:KitchenListComponent,canActivate:[UserGuard]}
 ];
 
 @NgModule({

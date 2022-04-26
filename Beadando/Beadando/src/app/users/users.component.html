@@ -1,0 +1,24 @@
+<h3 class="row justify-content-center">Users</h3>
+<button routerLink="/register" class="btn btn-sm btn-secondary">Register new acc</button>
+
+<div *ngFor="let user of users" class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-2">
+      <div class="card-body">
+        <h5 class="card-title">{{user.userName}}</h5>
+        <div class="text-end">
+          <button (click)="deleteUser(user.userName)" class="btn btn-sm btn-danger">
+            Delete
+          </button>
+        </div>
+        <div class="text-end">
+          <button (click)="toAdmin(user)"[hidden]="user.isAdmin" class="btn btn-sm btn-primary">To admin</button>
+        </div>
+        <div class="text-end">
+          <button (click)="removeAdmin(user)" [hidden]="!user.isAdmin" class="btn btn-sm btn-secondary">Remove admin</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -23,7 +23,7 @@ export class OrderAddComponent implements OnInit {
   config!:Config[];
 
   order=<Order>{};
-  asd!:number;
+
   constructor(private service: RequestsService, private route: ActivatedRoute,private router:Router) {
   }
 
@@ -56,6 +56,7 @@ export class OrderAddComponent implements OnInit {
       this.order.kitchenQueue.push(queueAdd);
       this.order.endPrice=this.order.endPrice+this.foodsAdded[i].price;
     }
+
     if (this.order.endPrice>=this.config[0].discountFrom){
       this.order.endPrice=this.order.endPrice*0.9;
     }

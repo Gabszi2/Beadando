@@ -17,12 +17,13 @@ export class OrderListComponent implements OnInit {
   }
 
  ngOnInit() {
-
 this.setup();
   }
+
 async setup(){
   this.orders = await this.requestService.getAllOrders();
 }
+
   async deleteOrder(id: number) {
 
     await this.requestService.deleteOrder(id);
