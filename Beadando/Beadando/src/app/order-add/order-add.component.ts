@@ -58,7 +58,7 @@ export class OrderAddComponent implements OnInit {
     }
 
     if (this.order.endPrice>=this.config[0].discountFrom){
-      this.order.endPrice=this.order.endPrice*0.9;
+      this.order.endPrice=Math.round(this.order.endPrice*0.9);
     }
 
 
@@ -66,12 +66,12 @@ export class OrderAddComponent implements OnInit {
     let queueBuildup=Math.floor(this.queue.length/kitchenSize);
 
 
-    if (queueBuildup>0) {
+   if (queueBuildup>0) {
       let queueAvg: number = 0;
       for (let i = 0; i < this.queue.length; i++) {
         queueAvg = queueAvg + this.queue[i].food.cookTime;
       }
-      queueAvg = ((queueAvg / this.queue.length) * queueBuildup) + (queueAvg * Math.floor(kitchenSize/2));
+      queueAvg = ((queueAvg / this.queue.length) * queueBuildup) //+ (queueAvg * Math.floor(kitchenSize/2));
       this.order.deliveryTime = this.order.deliveryTime + queueAvg;
     }
 
@@ -83,7 +83,7 @@ export class OrderAddComponent implements OnInit {
       for (let i=0;i<this.foodsAdded.length;i++){
         addedAvg=addedAvg+this.foodsAdded[i].cookTime;
       }
-      addedAvg=((addedAvg/this.foodsAdded.length))*(addedBuildup+addedAvg*Math.floor(kitchenSize/2));
+      addedAvg=((addedAvg/this.foodsAdded.length))//*(addedBuildup+addedAvg*Math.floor(kitchenSize/2));
       this.order.deliveryTime=this.order.deliveryTime+addedAvg;
     }
     else {
@@ -94,7 +94,8 @@ export class OrderAddComponent implements OnInit {
       addedAvg=addedAvg/this.foodsAdded.length;
       this.order.deliveryTime=this.order.deliveryTime+addedAvg;
     }
-this.order.deliveryTime=Math.floor(this.order.deliveryTime);
+
+    this.order.deliveryTime=Math.floor(this.order.deliveryTime);
     await this.service.addOrder(this.order);
 
    this.router.navigate(['/orders']).then(()=>{window.location.reload()})

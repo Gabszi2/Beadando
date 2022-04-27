@@ -15,8 +15,10 @@ loginForm!:FormGroup;
   constructor(private service:UserService,private formBuilder:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
-    this.loginForm=this.formBuilder.group({
 
+
+
+    this.loginForm=this.formBuilder.group({
       userName: ['',Validators.required],
       password:['',Validators.required],
     })
